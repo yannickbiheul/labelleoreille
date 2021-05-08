@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>
 			{% block title %}La Belle Oreille
 			{% endblock %}
@@ -14,31 +14,81 @@
 
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
+			<script src="https://kit.fontawesome.com/29ef46100e.js" crossorigin="anonymous"></script>
 		{% endblock %}
 	</head>
 	<body>
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">La Belle Oreille</a>
+				<a class="navbar-brand" href="/">
+					<img src="/img/logo2.png" alt="logo" style="width:250px;">
+				</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<div class="navbar-nav">
-						<a class="nav-link" href="#">Accueil</a>
+						<a class="nav-link" href="/">Accueil</a>
 						<a class="nav-link" href="#">Prestations</a>
 						<a class="nav-link" href="#">Contact</a>
-                        <a class="nav-link" href="#">Actualités</a>
-                        <a class="nav-link" href="#">Inscription/Connexion</a>
-                        <a class="nav-link" href="#">Envoi fichiers</a>
-                        <a class="nav-link" href="#">Galerie photos</a>
+						<a class="nav-link" href="#">Actualités</a>
+						<a class="nav-link" href="#">Galerie photos</a>
+						<a class="nav-link" href="#">Envoyez vos fichiers</a>
+						<a class="nav-link" href="#">Inscription/Connexion</a>
 					</div>
 				</div>
 			</div>
 		</nav>
 
+		<div class="container-fluid" id="banniere" style="height: 300px;padding-top:40px;">
+			<div class="row d-flex justify-content-center">
+				<div
+					class="col-md-4 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+					{# <img src="/img/logo1.png" alt="logo"> #}
+					<img src="/img/logo.png" alt="logo" id="logoText">
+					<p id="phrase">{{ phrase }}</p>
+				</div>
+				<div class="reseaux d-flex justify-content-center align-items-center">
+					<a href="https://www.facebook.com/La-Belle-Oreille-101656721318094/?modal=admin_todo_tour" target="_blank" title="Facebook">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+					<a href="https://www.instagram.com/foureljeanne/" target="_blank" title="Instagram">
+						<i class="fab fa-instagram"></i>
+					</a>
+				</div>
+				<div class="logo">
+					<img src="/img/logo1.png" alt="logo">
+				</div>
+			</div>
+		</div>
+
 		{% block body %}{% endblock %}
+
+		<div class="container-fluid" id="footer">
+			<div class="row">
+				<div class="nav-footer col col-md-4 d-flex flex-wrap justify-content-start align-items-center">
+					<a class="nav-link" href="/">Accueil</a>
+					<a class="nav-link" href="#">Prestations</a>
+					<a class="nav-link" href="#">Contact</a>
+					<a class="nav-link" href="#">Actualités</a>
+					<a class="nav-link" href="#">Galerie photos</a>
+					<a class="nav-link" href="#">Envoyez vos fichiers</a>
+					<a class="nav-link" href="#">Inscription/Connexion</a>
+				</div>
+				<div class="col col-md-4 d-flex justify-content-center align-items-center">
+					<p>©2021 - La Belle Oreille</p>
+				</div>
+				<div class="reseaux-footer col col-md-4 d-flex justify-content-end align-items-center">
+					<a href="https://www.facebook.com/La-Belle-Oreille-101656721318094/?modal=admin_todo_tour" target="_blank" title="Facebook">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+					<a href="https://www.instagram.com/foureljeanne/" target="_blank" title="Instagram">
+						<i class="fab fa-instagram"></i>
+					</a>
+				</div>
+			</div>
+		</div>
 
 	</body>
 </html>
