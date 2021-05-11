@@ -1,0 +1,111 @@
+#banniere {
+    position: relative;
+
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(/public/img/lights.jpg);
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+    border-top: #D8B75F;
+}
+
+#logoText {
+    width: 450px;
+    border-radius: 50%;
+}
+
+#phrase {
+    position: absolute;
+    left: 150px;
+    font-size: 1.8rem;
+}
+
+.reseaux {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+
+    width: 200px;
+    height: 50px;
+
+    // border: 1px solid #000;
+}
+
+.reseaux>a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.reseaux>a>i {
+    font-size: 1.8rem;
+    margin: 20px;
+}
+
+.logo {
+    position: absolute;
+    bottom: -80px;
+    z-index: 50;
+
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // border: 1px solid #ccc;
+}
+
+#footer {
+    background-color: #F8F9FA;
+    border-top: 1px solid #D8B75F;
+}
+
+.nav-footer>a {
+    color: #000;
+}
+
+.reseaux-footer>a {
+    color: #000;
+    font-size: 1.8rem;
+    margin: 20px;
+}
+
+@media screen and (max-width: 1400px) {
+    #banniere {
+        background-position: right;
+    }
+
+    #logoText {
+        display: none;
+    }
+
+    .logo {
+        top: 30%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+    }
+
+    #phrase {
+        bottom: 60px;
+        width: 300px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .reseaux {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .nav-footer {
+        display: none !important;
+    }
+
+    .reseaux-footer {
+        display: none !important;
+    }
+}
