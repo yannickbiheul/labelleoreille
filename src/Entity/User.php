@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -54,6 +56,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $ville;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Audio::class, inversedBy="users")
+     */
+    private $audio;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Role::class, mappedBy="user")
+     */
+    private $role;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Actu::class, inversedBy="users")
+     */
+    private $actu;
+
+    public function __construct()
+    {
+        $this->role = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -181,6 +203,60 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setVille(?string $ville): self
     {
         $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getAudio(): ?Audio
+    {
+        return $this->audio;
+    }
+
+    public function setAudio(?Audio $audio): self
+    {
+        $this->audio = $audio;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Role[]
+     */
+    public function getRole(): Collection
+    {
+        return $this->role;
+    }
+
+    public function addRole(Role $role): self
+    {
+        if (!$this->role->contains($role)) {
+            $this->role[] = $role;
+            $role->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRole(Role $role): self
+    {
+        if ($this->role->removeElement($role)) {
+            // set the owning side to null (unless already changed)
+            if ($role->getUser() === $this) {
+                $role->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getActu(): ?Actu
+    {
+        return $this->actu;
+    }
+
+    public function setActu(?Actu $actu): self
+    {
+        $this->actu = $actu;
 
         return $this;
     }

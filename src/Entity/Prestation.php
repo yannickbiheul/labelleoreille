@@ -27,6 +27,11 @@ class Prestation
      */
     private $contenu;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Audio::class, inversedBy="prestations")
+     */
+    private $audio;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Prestation
     public function setContenu(string $contenu): self
     {
         $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    public function getAudio(): ?Audio
+    {
+        return $this->audio;
+    }
+
+    public function setAudio(?Audio $audio): self
+    {
+        $this->audio = $audio;
 
         return $this;
     }
