@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CommentaireRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,16 @@ class Commentaire
      * @ORM\Column(type="datetime")
      */
     private $dateCreation;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Actu::class, mappedBy="commentaires")
+     */
+    private $actus;
+
+    public function __construct()
+    {
+        $this->actus = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +98,36 @@ class Commentaire
     public function setDateCreation(\DateTimeInterface $dateCreation): self
     {
         $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Actu[]
+     */
+    public function getActus(): Collection
+    {
+        return $this->actus;
+    }
+
+    public function addActu(Actu $actu): self
+    {
+        if (!$this->actus->contains($actu)) {
+            $this->actus[] = $actu;
+            $actu->setCommentaires($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActu(Actu $actu): self
+    {
+        if ($this->actus->removeElement($actu)) {
+            // set the owning side to null (unless already changed)
+            if ($actu->getCommentaires() === $this) {
+                $actu->setCommentaires(null);
+            }
+        }
 
         return $this;
     }
