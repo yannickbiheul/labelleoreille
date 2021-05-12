@@ -17,4 +17,5 @@ class HomeController extends AbstractController
         $sites = $siteRepository->findAll();
         return $this->render('home/index.html.twig', compact('sites'));
     }
+
 }
