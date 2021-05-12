@@ -8,7 +8,7 @@
         align-items: center;
         width: 400px;
         height: 380px;
-        background: linear-gradient(45deg, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(/public/img/lights.jpg);
+        background: linear-gradient(45deg, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(/public/backgrounds/lights.jpg);
         background-size: cover;
         background-position: bottom;
         border: 1px solid #ccc;
@@ -43,7 +43,47 @@
     }
 }
 
-@media screen and (max-width: 1000px) {
+#photos {
+    background: linear-gradient(70deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)50%);
+}
+
+.photo {
+    position: relative;
+    height: 500px;
+
+    .text {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #fff;
+    }
+}
+
+.wedding {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%), url(/public/backgrounds/wedding.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.family {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%), url(/public/backgrounds/family.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.enterprise {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%), url(/public/backgrounds/enterprise.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.micro {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%), url(/public/backgrounds/micro.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and (max-width: 992px) {
     #presentation {
         padding: 40px 10px;
 
@@ -54,6 +94,10 @@
         .carte-presentation {
             width: 300px;
         }
+    }
+
+    #photos {
+        display: none;
     }
 }
 
