@@ -32,6 +32,17 @@ class Prestation
      */
     private $audio;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="prestations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorie;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $contenu2;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +80,30 @@ class Prestation
     public function setAudio(?Audio $audio): self
     {
         $this->audio = $audio;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getContenu2(): ?string
+    {
+        return $this->contenu2;
+    }
+
+    public function setContenu2(?string $contenu2): self
+    {
+        $this->contenu2 = $contenu2;
 
         return $this;
     }
