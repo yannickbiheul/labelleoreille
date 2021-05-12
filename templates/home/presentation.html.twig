@@ -4,12 +4,14 @@
 			<img src="/img/essai_presentation.png" alt="photo">
 		</div>
 		<div class="carte-presentation col-lg-6 col-md-12 col-sm-12 d-flex justify-content-start">
-			<blockquote>
-				<em>{{ phrase }}</em>
-			</blockquote>
-			<figcaption>Jeanne Fourel</figcaption>
-			<hr>
-			<h3>{{ description }}</h3>
+			{% for site in sites %}
+				<blockquote>
+					<em>{{ site.phrase }}</em>
+				</blockquote>
+				<figcaption>Jeanne Fourel</figcaption>
+				<hr>
+				<h3>{{ site.description }}</h3>
+			{% endfor %}
 		</div>
 	</div>
 </div>
