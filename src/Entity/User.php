@@ -63,11 +63,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $audio;
 
     /**
-     * @ORM\OneToMany(targetEntity=Role::class, mappedBy="user")
-     */
-    private $role;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Actu::class, inversedBy="users")
      */
     private $actu;
