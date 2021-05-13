@@ -42,6 +42,11 @@ class Site
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $proprietaire;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Site
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getProprietaire(): ?string
+    {
+        return $this->proprietaire;
+    }
+
+    public function setProprietaire(string $proprietaire): self
+    {
+        $this->proprietaire = $proprietaire;
 
         return $this;
     }
