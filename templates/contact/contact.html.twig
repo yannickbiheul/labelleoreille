@@ -1,6 +1,52 @@
 <div class="container-fluid" id="contact">
-	<div class="row">
-		<div class="coords col-lg-6 col-sm-12"></div>
-		<div class="formulaire col-lg-6 col-sm-12"></div>
+	<div class="row d-flex justify-content-around">
+		<div class="coords col-lg-3 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+			<p>{{ admin.prenom }} {{ admin.nom }}</p>
+			<p>{{ admin.telephone }}</p>
+			<p>{{ admin.email }}</p>
+			<p>{{ admin.ville }}</p>
+		</div>
+		<div class="formulaire col-lg-3 col-sm-6 d-flex flex-column justify-content-center">
+
+			{{ form_start(form) }}
+
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+				{% endfor %}
+
+				<div>
+					{{ form_errors(form) }}
+				</div>
+
+				<div class="form-group mb-4">
+					<label class="form-label" for="contactName">
+						{{ form_label(form.nom) }}
+					</label>
+					{{ form_widget(form.nom) }}
+				</div>
+
+				<div class="form-group mb-4">
+					<label class="form-label" for="contactEmail">
+						{{ form_label(form.email) }}
+					</label>
+					{{ form_widget(form.email) }}
+				</div>
+
+				<div class="form-group mb-4">
+					<label class="form-label" for="contactMessage">
+						{{ form_label(form.message) }}
+					</label>
+					{{ form_widget(form.message) }}
+				</div>
+
+				<div class="form-group mb-0">
+					{{ form_widget(form.envoyer) }}
+				</div>
+
+			{{ form_end(form) }}
+
+		</div>
 	</div>
 </div>
