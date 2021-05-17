@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Categorie;
+use App\Entity\Image;
 use App\Entity\Site;
 use App\Entity\User;
 use App\Entity\Prestation;
@@ -92,6 +93,69 @@ class AppFixtures extends Fixture
             ->setCategorie($categorie2);
 
         $manager->persist($prestation3);
+
+        // Images
+        $image1 = new Image;
+        $image1->setNom('coat_ty_dreux.jpg');
+        $manager->persist($image1);
+
+        $image2 = new Image;
+        $image2->setNom('fougeres1.jpg');
+        $manager->persist($image2);
+
+        $image3 = new Image;
+        $image3->setNom('fougeres2.jpg');
+        $manager->persist($image3);
+
+        $image4 = new Image;
+        $image4->setNom('fougeres3.jpg');
+        $manager->persist($image4);
+
+        $image5 = new Image;
+        $image5->setNom('fougeres4.jpg');
+        $manager->persist($image5);
+
+        $image6 = new Image;
+        $image6->setNom('fougeres5.jpg');
+        $manager->persist($image6);
+
+        $image7 = new Image;
+        $image7->setNom('nevez1.jpg');
+        $manager->persist($image7);
+
+        $image8 = new Image;
+        $image8->setNom('nevez2.jpg');
+        $manager->persist($image8);
+
+        $image9 = new Image;
+        $image9->setNom('st_jorioz1.jpg');
+        $manager->persist($image9);
+
+        $image10 = new Image;
+        $image10->setNom('st_jorioz2.jpg');
+        $manager->persist($image10);
+
+        $image11 = new Image;
+        $image11->setNom('st_jorioz3.jpg');
+        $manager->persist($image11);
+
+        $image12 = new Image;
+        $image12->setNom('st_jorioz4.jpg');
+        $manager->persist($image12);
+
+        $image13 = new Image;
+        $image13->setNom('st_jorioz5.jpg');
+        $manager->persist($image13);
+
+        $image14 = new Image;
+        $image14->setNom('st_jorioz6.jpg');
+        $manager->persist($image14);
+
+        $image15 = new Image;
+        $image15->setNom('st_jorioz7.jpg');
+        $manager->persist($image15);
+
+        
 
         $manager->flush();
     }
