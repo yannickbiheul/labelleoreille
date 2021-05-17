@@ -2,11 +2,14 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Actu;
 use App\Entity\Categorie;
 use App\Entity\Image;
+use App\Entity\ImageActu;
 use App\Entity\Site;
 use App\Entity\User;
 use App\Entity\Prestation;
+use DateTime;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -155,7 +158,26 @@ class AppFixtures extends Fixture
         $image15->setNom('st_jorioz7.jpg');
         $manager->persist($image15);
 
-        
+        $image16 = new Image;
+        $image16->setNom('telegramme_20_10_2020.jpeg');
+        $manager->persist($image16);
+
+        $image17 = new Image;
+        $image17->setNom('ouest_france_31_10_2020.png');
+        $manager->persist($image17);
+
+        // Actu
+        $actu1 = new Actu;
+        $actu1->setTitre('Article Télégramme du 20 octobre 2020');
+        $actu1->setImage($image16);
+        $actu1->setDateCreation(new DateTime('now'));
+        $manager->persist($actu1);
+
+        $actu2 = new Actu;
+        $actu2->setTitre('Article Ouest France du 31 octobre 2020');
+        $actu2->setImage($image17);
+        $actu2->setDateCreation(new DateTime('now'));
+        $manager->persist($actu2);
 
         $manager->flush();
     }
