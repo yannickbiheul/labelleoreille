@@ -1,0 +1,14 @@
+<div class="container-fluid" id="actus">
+	<div class="row d-flex justify-content-center">
+		{% for actu in actus %}
+			<div class="carte-actu col-lg-12 d-flex flex-column justify-content-center align-items-center">
+				<h1>{{ actu.titre }}</h1>
+                <hr>
+				<p>{{ actu.contenu }}</p>
+				<a href="/img/{{ actu.image.nom }}">
+					<img src="/img/{{ actu.image.nom }}" alt="image">
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+</div>

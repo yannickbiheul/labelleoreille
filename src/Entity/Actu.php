@@ -25,7 +25,7 @@ class Actu
     private $titre;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $contenu;
 
@@ -49,9 +49,15 @@ class Actu
      */
     private $commentaires;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ImageActu::class, mappedBy="actu")
+     */
+    private $imageActus;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->imageActus = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -145,6 +151,36 @@ class Actu
     public function setCommentaires(?Commentaire $commentaires): self
     {
         $this->commentaires = $commentaires;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ImageActu[]
+     */
+    public function getImageActus(): Collection
+    {
+        return $this->imageActus;
+    }
+
+    public function addImageActu(ImageActu $imageActu): self
+    {
+        if (!$this->imageActus->contains($imageActu)) {
+            $this->imageActus[] = $imageActu;
+            $imageActu->setActu($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImageActu(ImageActu $imageActu): self
+    {
+        if ($this->imageActus->removeElement($imageActu)) {
+            // set the owning side to null (unless already changed)
+            if ($imageActu->getActu() === $this) {
+                $imageActu->setActu(null);
+            }
+        }
 
         return $this;
     }
